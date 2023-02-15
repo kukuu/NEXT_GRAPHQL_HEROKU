@@ -1,51 +1,54 @@
+
+
+import * as casual from 'casual';
+
+
+
 export const resolvers = {
     Query: {
-        people: (_, args, context) => {
-           const res =  {edges:  [
-                    {
-                        cursor: '0',
-                        node: {
-                            id: '0',
-                            name: 'John Doe',
-                            address: '123 Main St',
-                            email: 'cvbcxv',
-                            phone: '555-555-5555'}
-                    },
-                    {
-                        cursor: '1',
-                        node: {
-                            id: '1',
-                            name: 'John Doe',
-                            address: '123 Main St',
-                            email: 'cvbcxv',
-                            phone: '555-555-5555'}
-                    },
-                    {
-                        cursor: '2',
-                        node: {
-                            id: '2',
-                            name: 'Jane Doe',
-    
-                            address: '123 Main St',
-                            email: 'xcvbxc',
-                            phone: '555-555-5555'}
-                    },
-                    {
-                        cursor: '3',
-                        node: {
-                            id: '3',
-                            name: 'Jane Doe',
-                            address: '123 Main St',
-                            email: 'xcvbxc',
-                            phone: '555-555-5555'}
-                    },
-                ],
+        people:  (_, args, context) => {
+
+                    let arr = [];
+            for (let i = 0; i < 2000; i++) {
+                const generatedId = casual.uuid;
+                arr.push({
+                  cursor: i,
+                  node: {
+                    id: generatedId,
+                    name: casual.name,
+                    address: casual.address,
+                    email: casual.email,
+                    phone: casual.phone,
+                  },
+                });
+              }
+              let hasNext = true;
+              let end = args.first ;
+
+              if(!args.after){
+               arr = arr.slice(0,args.first+1)
+              }else{
+                if(args.after + args.first > arr.length){
+                  hasNext = false;
+                  arr = arr.slice(args.after,arr.length)
+                  end = arr.length-1;
+
+                }else{
+
+                arr = arr.slice(args.after,args.after + args.first)
+                end = args.after + args.first;
+              }
+            }
+              
+
+
+           const res =  {edges: arr,
                 pageInfo:{
-                    hasNextPage: true,
-                    endCursor: '3'
+                    hasNextPage: hasNext,
+                    endCursor: end
                 }
             }
-            res.edges = res.edges.slice(args.first);
+          
             return res;
         }
        

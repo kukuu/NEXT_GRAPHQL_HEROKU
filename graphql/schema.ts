@@ -9,7 +9,7 @@ export const typeDefs = gql`
     phone: String
   }
   type Edge {
-    cursor: String
+    cursor: Int
     node: Person
   }
   type Response {
@@ -18,9 +18,9 @@ export const typeDefs = gql`
   }
   type PageInfo {
     hasNextPage: Boolean
-    endCursor: String
+    endCursor: Int
   }
   type Query {
-    people(first: Int = 3,after: Int = 2): Response!
+    people(first: Int,after: Int): Response!
   }
 `;

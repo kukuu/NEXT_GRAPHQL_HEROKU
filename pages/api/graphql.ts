@@ -8,36 +8,40 @@ import Cors from 'micro-cors';
 
 // const cors = Cors();
 
-const mocks = {
-  Person: () => ({
-    id: casual.uuid,
-    name: casual.name,
-    address: casual.address,
-    email: casual.email,
-    phone: casual.phone,
-  }),
-  Query: () => ({
-    people: () => {
-      const fakeData = [];
-      for (let i = 0; i < 60; i++) {
-        fakeData.push({
-          name: casual.name,
-          address: casual.address,
-          email: casual.email,
-          phone: casual.phone,
-        });
-      }
-      return fakeData;
-    },
-  }),
-};
+// const mocks = {
+//   Query: () => ({
+//     people: (parent, args, context, info) => {
+//       console.log("Args",args);
+//       let response = {};
+//       response.pageInfo = {
+//         hasNextPage: true,
+//         endCursor: casual.uuid,
+//       };
+//       response.edges = [];
+//       for (let i = 0; i < 60; i++) {
+//         const generatedId = casual.uuid;
+//         response.edges.push({
+//           cursor: generatedId,
+//           node: {
+//             id: generatedId,
+//             name: casual.name,
+//             address: casual.address,
+//             email: casual.email,
+//             phone: casual.phone,
+//           },
+//         });
+//       }
+//       return response;
+//     },
+//   }),
+// };
 
-const apolloServer = new ApolloServer({ typeDefs, resolvers });
+export const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
 // const apolloServer = new ApolloServer({
 //   schema: addMocksToSchema({
 //     schema: makeExecutableSchema({ typeDefs, resolvers }),
-//     mocks,
+//     mocks, preserveResolvers: true,
 //   }),
 // });
 
@@ -58,7 +62,7 @@ export default async (req, res) => {
     res.end();
     return false;
   }
-  await startServer;
+  await new Promise(resolve => setTimeout(resolve, 2000));
 
   await apolloServer.createHandler({
     path: '/api/graphql',
