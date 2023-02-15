@@ -5,18 +5,29 @@ We will be using Apollo Server and Apollo client libraris to handle data fetchin
 We will try to dockerize it
 
 # Library Used
+Next.js
+React
+ApolloGraphQL
+TailwindCSS
+Casual ( for fake data)
+Docker 
+Heroku (for deployment)
+Jest for unit testing
+Cypress (e2e)
 
 # Run commands to get started
-npm install
-
-npm run dev
-
-npm run bild
+npm install (install all the dependencies)
+npm run dev (for fast refresh)
+npm run build (production build)
+npm run start ( after production build)
 
 # Build Docker Container
--  docker build -t nextjs-docker .
--  docker run -p 3000:3000 nextjs-docker
+-  docker build -t nextjs-docker . 
 
 # Run Docker
+-  docker run -p 3000:3000 nextjs-docker
 
 # Deploy to Heroku
+heroku login
+heroku create
+
