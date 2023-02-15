@@ -50,10 +50,12 @@ export const resolvers = {
             }
           
             return res;
-        }
-       
+        },
+        hello: (_, { name }) => `Hello ${name}!`,
+},
 
-}}
+
+}
 
 // const fakeData = [];
 // for (let i = 0; i < 2000; i++) {

@@ -23,4 +23,7 @@ export const typeDefs = gql`
   type Query {
     people(first: Int,after: Int): Response!
   }
+  type Query {
+    hello(name: String): String!
+  }
 `;

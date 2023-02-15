@@ -63,7 +63,7 @@ function Home() {
 
           ))}
         </div>
-        {bottomLoading && <p className="my-10 text-center font-medium text-red-500">Loading...</p>}
+        {bottomLoading && <p className="flex-center w-6 h-6 border-4 rounded-full animate-spin border-blue-500 border-t-blue-500 border-l-blue-500 border-b-blue-700 border-r-blue-700 border-t-gradient-to-r from-blue-400 to-blue-500 mx-auto my-10"></p>}
         {hasNextPage ? (
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded my-10"
@@ -76,6 +76,7 @@ function Home() {
                   console.log("More", fetchMoreResult);
                   console.log("Prev", prev);
                   // if (!fetchMoreResult) return prev;
+                  
                   fetchMoreResult.people.edges = [
                     ...prev.people.edges,
                     ...fetchMoreResult.people.edges,
