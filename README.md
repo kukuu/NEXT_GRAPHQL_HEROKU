@@ -30,4 +30,6 @@ npm run start ( after production build)
 # Deploy to Heroku
 heroku login
 heroku create
+heroku stack:set container
+git push heroku master
 
