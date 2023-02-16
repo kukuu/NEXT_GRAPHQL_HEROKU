@@ -31,11 +31,19 @@ We will try to dockerize it
 
 - docker run -p 3000:3000 nextjs-docker
 
+# Push Docker Link Image
+
+- docker push techlever45/awesome-links-web:version1
+
+# Docker Image link
+
+- https://hub.docker.com/repository/docker/techlever45/awesome-links-web
+- command: docker pull techlever45/awesome-links-web:version1
+
 # e2e testing using Cypress
 
-- npm run e2e      [ this will run the test in headless mode]
-- npm run cypress  [ this will run the test after opening Browser]
-
+- npm run e2e [ this will run the test in headless mode]
+- npm run cypress [ this will run the test after opening Browser]
 
 # Deploy to Heroku
 
@@ -43,8 +51,3 @@ We will try to dockerize it
 - heroku create
 - heroku stack:set container
 - git push heroku master
-
-# Docker Image link
-- https://hub.docker.com/repositories/techlever45
-- command: docker pull techlever45/awesome-links-web:version1
-

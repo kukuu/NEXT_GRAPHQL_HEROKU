@@ -31,7 +31,7 @@ function Home() {
     variables: { first: 20 },
   });
   const [bottomLoading, setBottomLoading] = useState(false);
-  console.log(data);
+  // console.log(data);
 
   if (loading) return <p className="text-red-500 container mx-auto max-w-5xl my-5 px-5">Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
@@ -73,11 +73,11 @@ function Home() {
             onClick={() => {
               setBottomLoading(true);
               fetchMore({
-                variables: { after: 10 },
+                variables: { after: 20 },
                 updateQuery: (prev, { fetchMoreResult }) => {
                   setBottomLoading(false);
-                  console.log("More", fetchMoreResult);
-                  console.log("Prev", prev);
+                  // console.log("More", fetchMoreResult);
+                  // console.log("Prev", prev);
                   // if (!fetchMoreResult) return prev;
                   
                   fetchMoreResult.people.edges = [
