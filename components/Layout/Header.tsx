@@ -23,7 +23,26 @@ const Header = () => {
             </svg>
           </a>
         </Link>
+       
       </div>
+      <nav>
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <div className="flex flex-wrap items-center text-base justify-center">
+            <Link href="/">
+              <div className="nav-link mr-5 hover:text-gray-900">
+              Home
+              </div>
+            
+            </Link>
+            <Link href="/about">
+              <div   className="nav-link mr-5 hover:text-gray-900">
+              About
+              </div>
+              
+            </Link>
+            </div>
+        </div>
+      </nav>
     </header>
   );
 };

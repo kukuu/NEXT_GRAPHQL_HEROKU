@@ -33,7 +33,7 @@ function Home() {
   const [bottomLoading, setBottomLoading] = useState(false);
   console.log(data);
 
-  if (loading) return <p className="text-red-500">Loading...</p>;
+  if (loading) return <p className="text-red-500 container mx-auto max-w-5xl my-5 px-5">Loading...</p>;
   if (error) return <p>Oh no... {error.message}</p>;
 
   const { endCursor, hasNextPage } = data?.people.pageInfo;
@@ -51,8 +51,8 @@ function Home() {
       
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data?.people.edges.map(({node}, i) => (
-        
-           <AwesomePerson
+            <div className="person">
+               <AwesomePerson
             id={node.id}
            name={node.name}
             address={node.address}
@@ -61,6 +61,9 @@ function Home() {
 
          />
 
+            </div>
+        
+          
           ))}
         </div>
         {bottomLoading && <p className="flex-center w-6 h-6 border-4 rounded-full animate-spin border-blue-500 border-t-blue-500 border-l-blue-500 border-b-blue-700 border-r-blue-700 border-t-gradient-to-r from-blue-400 to-blue-500 mx-auto my-10"></p>}
@@ -86,7 +89,7 @@ function Home() {
               });
             }}
           >
-            more
+            Load more
           </button>
         ) : (
           <p className="my-10 text-center font-medium">

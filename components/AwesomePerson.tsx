@@ -6,7 +6,7 @@ export const AwesomePerson = ({
 }) => {
   return (
     <Suspense fallback={<h1>Loading persons...</h1>}>
-       <div key={id} className="shadow  max-w-md  rounded">
+       <div key={id} className="shadow  max-w-md  rounded h-60">
       
       <div className="p-5 flex flex-col space-y-2">
       <p className="text-lg font-medium">{name}</p>

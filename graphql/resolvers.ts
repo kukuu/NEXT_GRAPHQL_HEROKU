@@ -26,7 +26,7 @@ export const resolvers = {
               let end = args.first ;
 
               if(!args.after){
-               arr = arr.slice(0,args.first+1)
+               arr = arr.slice(0,args.first)
               }else{
                 if(args.after + args.first > arr.length){
                   hasNext = false;
