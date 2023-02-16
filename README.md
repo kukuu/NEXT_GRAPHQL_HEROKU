@@ -45,4 +45,17 @@ We will try to dockerize it
 - git push heroku master
 
 # Docker Image link
-- https://hub.docker.com/r/pritamsharma45/awesome-links-web
+- https://hub.docker.com/repositories/techlever45
+- command: docker pull techlever45/awesome-links-web:version1
+
+
+---------------------------------------------------------
+Scree Recording Sequence
+---------------------------------------------------------
+
+# We will test it in dev mode by running npm run dev
+# We will test for production build by running npm run build && npm run start
+# We will perform End to End testing for this production build. App must be running in this case on port:3000
+# We will containerize it by this command: docker build -t nextjs-docker .
+# We will run container : docker run -p 3000:3000 nextjs-docker
+# We will perform Cypress testing again.
