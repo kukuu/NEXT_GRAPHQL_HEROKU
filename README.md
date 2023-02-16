@@ -31,6 +31,12 @@ We will try to dockerize it
 
 - docker run -p 3000:3000 nextjs-docker
 
+# e2e testing using Cypress
+
+- npm run e2e      [ this will run the test in headless mode]
+- npm run cypress  [ this will run the test after opening Browser]
+
+
 # Deploy to Heroku
 
 - heroku login
