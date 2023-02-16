@@ -2,7 +2,23 @@ import { gql } from "@apollo/client";
 import { ApolloServer } from 'apollo-server-micro';
  import { typeDefs } from '../graphql/schema';
 import { resolvers } from '../graphql/resolvers';
+import { describe, expect, test } from "@jest/globals";
 
+it('returns hello with the provided name', async () => {
+  const testServer = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
+
+  const response = await testServer.executeOperation({
+    query: 'query SayHelloWorld($name: String) { hello(name: $name) }',
+    variables: { name: 'world' },
+  });
+
+  console.log(response.data.hello);
+  // expect(response.body.singleResult.errors).toBeUndefined();
+  expect(response.data?.hello).toBe('Hello world!');
+});
 
 
 it('returns health test is ok', async () => {
@@ -32,14 +48,9 @@ it('returns health test is ok', async () => {
         }
       }
       `,
-      variables: { "first":4,
+      variables: { "first":20,
       "after": 0 },
     });
-  
-    // Note the use of Node's assert rather than Jest's expect; if using
-    // TypeScript, `assert`` will appropriately narrow the type of `body`
-    // and `expect` will not.
+    expect(response.data?.people.edges.length).toBe(20);
 
-    expect(response.body.singleResult.errors).toBeUndefined();
-    expect(response.body.singleResult.data?.hello).toBe('Hello world!');
   });

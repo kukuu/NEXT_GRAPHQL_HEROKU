@@ -1,7 +1,7 @@
 import React from 'react';
 import { Suspense } from 'react';
 
-export const AwesomePerson = ({
+ const AwesomePerson = ({
   name,address,email,phone,id
 }) => {
   return (
@@ -21,3 +21,5 @@ export const AwesomePerson = ({
    
   );
 };
+
+export default AwesomePerson;

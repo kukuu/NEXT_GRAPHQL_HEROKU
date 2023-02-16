@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { gql, useQuery } from '@apollo/client';
 import Link from 'next/link';
-import { AwesomePerson } from '../components/AwesomePerson';
+import  AwesomePerson  from '../components/AwesomePerson';
 import { Suspense } from 'react';
 import { useState } from 'react';
 
