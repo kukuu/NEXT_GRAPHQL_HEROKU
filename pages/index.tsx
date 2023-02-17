@@ -67,6 +67,7 @@ function Home() {
             </div>
           ))}
         </div>
+        {/* To render spinner when data is being fetched */}
         {bottomLoading && (
           <p className="flex-center w-6 h-6 border-4 rounded-full animate-spin border-blue-500 border-t-blue-500 border-l-blue-500 border-b-blue-700 border-r-blue-700 border-t-gradient-to-r from-blue-400 to-blue-500 mx-auto my-10"></p>
         )}
@@ -76,7 +77,7 @@ function Home() {
             onClick={() => {
               setBottomLoading(true);
               fetchMore({
-                variables: { after: 20 },
+                variables: { after: endCursor },
                 updateQuery: (prev, { fetchMoreResult }) => {
                   setBottomLoading(false);
                   // console.log("More", fetchMoreResult);

@@ -25,12 +25,12 @@ describe("Navigation to about page", () => {
 });
 
 describe("Data fetching test", () => {
-  it("When Load more button is clicked, it should display 20 persons", () => {
+  it("When application is loaded for the first time, it should display 20 persons", () => {
     cy.visit("http://localhost:3000");
     cy.get("button").contains("Load more").click();
     cy.get(".person").should("have.length", 20);
   });
-  it("When load more is clicked 2nd time, it should load another 20 persons and display 40 persons", () => {
+  it("When load more is clicked, it should load another 20 persons and display 40 persons", () => {
     cy.visit("http://localhost:3000");
     cy.get("button").contains("Load more").click();
     cy.get(".person").should("have.length", 40);
