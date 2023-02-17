@@ -16,7 +16,7 @@ it('returns hello with the provided name', async () => {
   });
 
   console.log(response.data.hello);
-  // expect(response.body.singleResult.errors).toBeUndefined();
+  
   expect(response.data?.hello).toBe('Hello world!');
 });
 

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "e2e": "cypress run --e2e",
+    "e2e": "node toggle.js && cypress run --e2e",
     "cypress": "cypress open --e2e",
     "test": "jest --env=jsdom ./__tests__",
     "e2etest": "start-server-and-test start http://localhost:3000 cy:run"
